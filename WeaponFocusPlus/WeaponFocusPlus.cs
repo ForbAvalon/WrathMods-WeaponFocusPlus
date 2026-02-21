@@ -133,43 +133,43 @@ namespace WeaponFocusPlus {
             List<string> text = new List<string>();
 
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Axes)) {
-                text.Add("Axes");
+                text.Add("斧");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Bows)) {
-                text.Add("Bows");
+                text.Add("弓");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Close)) {
-                text.Add("Close");
+                text.Add("近身");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Crossbows)) {
-                text.Add("Crossbows");
+                text.Add("弩");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Double)) {
-                text.Add("Double");
+                text.Add("双头");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Hammers)) {
-                text.Add("Hammers");
+                text.Add("锤");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.BladesHeavy)) {
-                text.Add("Heavy Blades");
+                text.Add("重刃");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.BladesLight)) {
-                text.Add("Light Blades");
+                text.Add("轻刃");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Monk)) {
-                text.Add("Monk");
+                text.Add("武僧");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Natural)) {
-                text.Add("Natural");
+                text.Add("天生");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Polearms)) {
-                text.Add("Polearms");
+                text.Add("长柄");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Spears)) {
-                text.Add("Spears");
+                text.Add("矛");
             }
             if (Array.Exists(weaponGroups, t => t == WeaponFighterGroup.Thrown)) {
-                text.Add("Thrown");
+                text.Add("投掷");
             }
             return text.ToArray();
         }

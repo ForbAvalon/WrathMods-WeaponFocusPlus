@@ -1,129 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WeaponFocusPlus</RootNamespace>
-    <AssemblyName>WeaponFocusPlus</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<OutputType>Library</OutputType>
+		<RootNamespace>WeaponFocusPlus</RootNamespace>
+		<AssemblyName>WeaponFocusPlus</AssemblyName>
+		<LangVersion>8.0</LangVersion>
+		<Platforms>AnyCPU</Platforms>
+		<Deterministic>true</Deterministic>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<WrathPath>E:\GOG\Games\Pathfinder Wrath of the Righteous</WrathPath>
+		<ManagedPath>$(WrathPath)\Wrath_Data\Managed</ManagedPath>
+	</PropertyGroup>
 
-    <WrathPath>E:\GOG\Games\Pathfinder Wrath of the Righteous</WrathPath>
-    <ManagedPath>$(WrathPath)\Wrath_Data\Managed</ManagedPath>
-  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+	</ItemGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>$(ManagedPath)\UnityModManager\0Harmony.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 
-  <ItemGroup>
-    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
-  </ItemGroup>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>$(ManagedPath)\Assembly-CSharp.dll</HintPath>
+			<Publicize>true</Publicize>
+			<Private>False</Private>
+		</Reference>
 
-  <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>$(ManagedPath)\UnityModManager\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    
-    <Reference Include="Assembly-CSharp">
-      <HintPath>$(ManagedPath)\Assembly-CSharp.dll</HintPath>
-      <Publicize>true</Publicize>
-      <Private>False</Private>
-    </Reference>
-    
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>$(ManagedPath)\Assembly-CSharp-firstpass.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
-    
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>$(ManagedPath)\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    
-    <Reference Include="UnityEngine">
-      <HintPath>$(ManagedPath)\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(ManagedPath)\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>$(ManagedPath)\UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>$(ManagedPath)\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    
-    <Reference Include="UnityModManager">
-      <HintPath>$(ManagedPath)\UnityModManager\UnityModManager.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
+		<Reference Include="Assembly-CSharp-firstpass">
+			<HintPath>$(ManagedPath)\Assembly-CSharp-firstpass.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeaponFocusPlus.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".editorconfig" />
-    <None Include="Info.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="groups.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="readme.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(ManagedPath)\Newtonsoft.Json.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		<Reference Include="UnityEngine">
+			<HintPath>$(ManagedPath)\UnityEngine.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(ManagedPath)\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule">
+			<HintPath>$(ManagedPath)\UnityEngine.IMGUIModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>$(ManagedPath)\UnityEngine.UI.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 
-  <PropertyGroup>
-    <PostBuildEvent>(robocopy "$(TargetDir) " "$(WrathPath)\Mods\WeaponFocusPlus\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0</PostBuildEvent>
-  </PropertyGroup>
+		<Reference Include="UnityModManager">
+			<HintPath>$(ManagedPath)\UnityModManager\UnityModManager.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Info.json;groups.json;readme.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="robocopy &quot;$(TargetDir) &quot; &quot;$(WrathPath)\Mods\WeaponFocusPlus\ &quot; /s /e &#xD;&#xA;IF %25ERRORLEVEL%25 LEQ 1 exit 0" IgnoreExitCode="true" />
+	</Target>
 </Project>
